@@ -1,5 +1,5 @@
 function App() {
-  return <div>Welcome to my app!</div>;
+  return <p className="text-sky-400">The quick brown fox...</p>;
 }
 
 export default App;
