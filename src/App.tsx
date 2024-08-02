@@ -1,5 +1,11 @@
+import Header from "./components/Header";
+
 function App() {
-  return <p className="text-sky-400">The quick brown fox...</p>;
+  return (
+    <div className="px-8 pt-8">
+      <Header />
+    </div>
+  );
 }
 
 export default App;
