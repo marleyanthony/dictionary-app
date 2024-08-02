@@ -26,7 +26,8 @@ const Header = () => {
           type="text"
           name="search bar"
           id="search-bar"
-          className="border w-full"
+          className="border w-full border-solid border-black mt-4 p-2 rounded-md"
+          placeholder="Enter your text here!"
         />
       </div>
     </div>
