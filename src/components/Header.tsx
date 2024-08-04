@@ -1,10 +1,13 @@
 import { ReactComponent as Logo } from "../assets/images/logo.svg";
 import { ReactComponent as MoonIcon } from "../assets/images/icon-moon.svg";
+import { useState } from "react";
 
-const Header = () => {
+const Header = (updateValue: any) => {
+  const [searchValue, setSearchValue] = useState<string>("");
+
   return (
-    <div className="w-full border">
-      <div className="flex justify-between">
+    <div className="w-full">
+      <div className="flex justify-between mb-4">
         <Logo />
         <div className="flex">
           <select name="font style" id="font-style">
@@ -21,14 +24,23 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="flex items-center justify-center mt-4">
         <input
           type="text"
           name="search bar"
           id="search-bar"
-          className="border w-full border-solid border-black mt-4 p-2 rounded-md"
+          className="w-full p-4 rounded-md border mr-4"
           placeholder="Enter your text here!"
+          onChange={(e) => setSearchValue(e.target.value)}
         />
+        <div>
+          <button
+            onClick={() => updateValue.updateSearchTerm(searchValue)}
+            className="p-4 rounded-md bg-purple-600 text-white hover:bg-purple-700 transition duration-500 ease-in-out"
+          >
+            Search
+          </button>
+        </div>
       </div>
     </div>
   );
