@@ -1,7 +1,7 @@
 import { ReactComponent as Logo } from "../assets/images/logo.svg";
 import { ReactComponent as MoonIcon } from "../assets/images/icon-moon.svg";
 
-const Header = () => {
+const Header = (updateValue: any) => {
   return (
     <div className="w-full border">
       <div className="flex justify-between">
@@ -28,6 +28,7 @@ const Header = () => {
           id="search-bar"
           className="border w-full border-solid border-black mt-4 p-2 rounded-md"
           placeholder="Enter your text here!"
+          onChange={(e) => updateValue.updateSearchTerm(e.target.value)}
         />
       </div>
     </div>
