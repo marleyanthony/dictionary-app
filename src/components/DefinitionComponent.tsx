@@ -1,8 +1,6 @@
 const DefinitionComponent = (data: any): React.ReactElement => {
   return (
     <>
-      <h1 className="text-5xl my-3">{data.info.word}</h1>
-      <p className="mb-3">{data.info.phonetic}</p>
       <div className="flex items-center  mb-3">
         <p className="font-bold italic">{data.info.partOfSpeech}</p>
         <div className="border w-full border-solid border-black mt-1 ml-3" />
@@ -30,7 +28,7 @@ const DefinitionComponent = (data: any): React.ReactElement => {
             })}
           </div>
         ) : (
-          <p>None</p>
+          <p className="px-1">None</p>
         )}
       </div>
       <div className="flex mb-2">
@@ -46,7 +44,7 @@ const DefinitionComponent = (data: any): React.ReactElement => {
             })}
           </div>
         ) : (
-          <p>None</p>
+          <p className="px-1">None</p>
         )}
       </div>
     </>

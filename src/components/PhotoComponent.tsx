@@ -2,7 +2,7 @@ import { createApi } from "unsplash-js";
 import { Photo } from "../Types/Types";
 import { useEffect, useState } from "react";
 
-const PhotoComponent = () => {
+const PhotoComponent = (term: any) => {
   const [photoResponse, setPhotosResponse] = useState<any | null>(null);
   const unsplash = createApi({
     accessKey: "bHUc8RD8oZ43PJAzlLSU79uLGtsUr-TyEWKiJRP4a-c",
@@ -10,14 +10,14 @@ const PhotoComponent = () => {
 
   useEffect(() => {
     unsplash.search
-      .getPhotos({ query: "basketball", orientation: "landscape" })
+      .getPhotos({ query: `${term.term}`, orientation: "landscape" })
       .then((result) => {
         setPhotosResponse(result);
       })
       .catch(() => {
         console.error("something went wrong!");
       });
-  });
+  }, [term.term]);
 
   const PhotoComp: React.FC<{ photo: Photo }> = ({ photo }) => {
     const { user, urls } = photo;
@@ -37,15 +37,18 @@ const PhotoComponent = () => {
     );
   };
 
-  if (photoResponse === null) {
-    return <div>Loading...</div>;
-  } else {
+  if (photoResponse !== null && photoResponse.type === "fail") {
+    return <h1>Loading...</h1>;
+  }
+
+  if (photoResponse !== null && photoResponse.type === "success") {
     return (
       <div className="feed">
         <PhotoComp photo={photoResponse.response.results[0]} />
       </div>
     );
   }
+  return <h1>test</h1>;
 };
 
 export default PhotoComponent;
