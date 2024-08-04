@@ -15,7 +15,7 @@ const PhotoComponent = () => {
         setPhotosResponse(result);
       })
       .catch(() => {
-        console.log("something went wrong!");
+        console.error("something went wrong!");
       });
   });
 

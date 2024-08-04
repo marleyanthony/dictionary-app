@@ -3,7 +3,7 @@ import { ReactComponent as MoonIcon } from "../assets/images/icon-moon.svg";
 
 const Header = (updateValue: any) => {
   return (
-    <div className="w-full border">
+    <div className="w-full">
       <div className="flex justify-between">
         <Logo />
         <div className="flex">
