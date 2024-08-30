@@ -11,7 +11,7 @@ function App() {
   };
 
   return (
-    <div className="px-72 pt-8">
+    <div className="px-10 pt-8">
       <Header updateSearchTerm={updateValue} />
       <Definition term={searchTerm} />
       {searchTerm && (
